@@ -1,0 +1,31 @@
+import { HaanConfig } from './types.js';
+
+export const DEFAULT_CONFIG: HaanConfig = {
+  mode: 'human',
+  dangerouslySkipPermissions: false,
+  autoApprove: false,
+  models: {
+    planner: 'gemini-3-pro-preview',
+    builder: 'gpt-5.2-codex',
+    tester: 'gpt-5.2-codex',
+    debugger: 'gpt-5.1-codex-max',
+    featureEngineer: 'gpt-5.1-codex-max',
+  },
+  providers: {
+    anthropic: { apiKey: '' },
+    openai: { apiKey: '' },
+    google: { apiKey: '' },
+  },
+  pipeline: {
+    maxRetries: 3,
+    maxImprovementPasses: 2,
+    maxAgentIterations: 25,
+    timeout: 300_000,
+  },
+  ui: {
+    showTokens: true,
+    showCost: true,
+    streamingSpeed: 8,
+    theme: 'default',
+  },
+};

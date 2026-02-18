@@ -1,0 +1,38 @@
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-read\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-write\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-edit\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-delete\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-search\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-glob\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"file-list\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"shell-exec\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-status\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-diff\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-commit\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-branch\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-push\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"git-log\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"web-search\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"web-fetch\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"code-analyze\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"code-find-symbol\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"test-discover\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"test-run\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"test-parse\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"test-coverage\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"memory-save\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"memory-load\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"memory-search\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"ast-find-symbol\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"ast-find-dead-code\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.157Z","level":"warn","component":"tool-registry","message":"Tool \"ast-extract-function\" already registered, overwriting"}
+{"ts":"2026-02-14T15:42:05.201Z","level":"info","component":"api-server","message":"REST API server running on http://localhost:3333"}
+{"ts":"2026-02-14T15:42:07.844Z","level":"info","component":"websocket","message":"Client connected (1 total)"}
+{"ts":"2026-02-14T15:42:07.844Z","level":"info","component":"websocket","message":"Client connected (2 total)"}
+{"ts":"2026-02-14T15:42:07.849Z","level":"info","component":"websocket","message":"Client disconnected (1 total)"}
+{"ts":"2026-02-14T15:42:10.930Z","level":"info","component":"websocket","message":"Client connected (2 total)"}
+{"ts":"2026-02-14T15:44:37.279Z","level":"info","component":"websocket","message":"Starting pipeline via WS: \"ping pong game\" mode=auto"}
+{"ts":"2026-02-14T15:44:37.281Z","level":"info","component":"PipelineEngine","message":"Starting pipeline for task: \"ping pong game\" in auto mode"}
+{"ts":"2026-02-14T15:44:37.282Z","level":"info","component":"StageRunner","message":"Starting stage: planning with agent: planner"}
+{"ts":"2026-02-14T15:44:37.283Z","level":"error","component":"StageRunner","message":"Stage planning failed: Google AI API key not configured. Set GOOGLE_AI_API_KEY or run /config providers.google.apiKey <key>","data":{"stage":"planning","agent":"planner","duration":1,"stack":"Error: Google AI API key not configured. Set GOOGLE_AI_API_KEY or run /config providers.google.apiKey <key>\n    at createProvider (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:3706:21)\n    at createProviderForRole (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:3714:19)\n    at createAgent (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5441:20)\n    at runStage (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5535:19)\n    at PipelineEngine.runStageWithTimeout (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5956:9)\n    at PipelineEngine.runSingleStage (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5933:31)\n    at file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5838:35\n    at Array.map (<anonymous>)\n    at PipelineEngine.runStagesDAG (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5838:15)\n    at PipelineEngine.execute (file:///Users/suhaan/Documents/Coding/Haan.ai/dist/index.js:5784:18)"}}
+{"ts":"2026-02-14T15:44:37.284Z","level":"info","component":"checkpoint","message":"Saved checkpoint: /Users/suhaan/Documents/Coding/Haan.ai/dashboard/src-tauri/.haan/checkpoints/cbdda71fba1b1519.json"}

@@ -1,0 +1,63 @@
+{
+  "name": "haan-ai",
+  "version": "1.0.0",
+  "description": "Full autonomous coding agent - Plan, Build, Test, Debug, Review",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "haan": "./bin/haan.js",
+    "haan-mcp": "./bin/haan-mcp.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node bin/haan.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "ai",
+    "coding-agent",
+    "autonomous",
+    "cli"
+  ],
+  "author": "Haan.ai",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google/generative-ai": "^0.24.0",
+    "@inquirer/prompts": "^7.0.0",
+    "boxen": "^8.0.1",
+    "chalk": "^5.4.1",
+    "cli-highlight": "^2.1.11",
+    "cli-progress": "^3.12.0",
+    "cli-spinners": "^3.2.0",
+    "commander": "^13.1.0",
+    "dotenv": "^17.2.4",
+    "figlet": "^1.8.0",
+    "gradient-string": "^3.0.0",
+    "ink": "^5.1.0",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^6.0.0",
+    "log-symbols": "^7.0.0",
+    "openai": "^4.85.0",
+    "ora": "^8.1.1",
+    "react": "^18.3.1",
+    "strip-ansi": "^7.1.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.19.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/gradient-string": "^1.1.6",
+    "@types/node": "^22.12.0",
+    "@types/react": "^18.3.18",
+    "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.18.1",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.18"
+  }
+}

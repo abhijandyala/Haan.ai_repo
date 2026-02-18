@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>haan.ai — Full Autonomous Coding Agent</title>
+  <meta name="description" content="Ship production code with a single prompt. 5 AI agents — Plan, Build, Test, Debug, Review — powered by Gemini 3 Pro, Claude Opus 4.5, and GPT-5.2 Codex.">
+  <meta name="theme-color" content="#07080C">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="haan.ai — Full Autonomous Coding Agent">
+  <meta property="og:description" content="Ship production code with a single prompt. 5 AI agents that plan, build, test, debug, and review your code.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haan.ai">
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preconnect to font CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    code, .mono, .terminal-body, .install-cmd, .install-command, .step-code, .model-name, .nav-logo, .footer-brand {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+    .animate-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════ Nav ═══════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo gradient-text">haan.ai</a>
+      <ul class="nav-links">
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#install" class="nav-cta">Get Started</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════ Hero ═══════ -->
+  <section class="hero">
+    <div class="glow-orb amber"></div>
+    <div class="glow-orb orange"></div>
+    <div class="glow-orb red"></div>
+
+    <div class="container hero-content">
+      <div class="badge">Autonomous AI Agent</div>
+      <h1><span class="gradient-text">haan.ai</span></h1>
+      <p class="hero-tagline">
+        Ship production code with a single prompt. Five AI agents that plan, build,
+        test, debug, and review — with parallel execution, plugins, and MCP integration.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#install" class="btn-primary">
+          <span>Get Started Free</span>
+          <span>→</span>
+        </a>
+        <a href="#pipeline" class="btn-secondary">
+          <span>See How It Works</span>
+        </a>
+      </div>
+
+      <div class="install-cmd" onclick="copyInstall(this)" title="Click to copy">
+        <span class="prompt">$</span>
+        <span class="cmd">curl -fsSL https://haan.ai/install.sh | bash</span>
+        <span class="copy-icon">📋</span>
+      </div>
+      <span class="install-or">or</span>
+      <div class="install-cmd npm-install" onclick="copyNpm(this)" title="Click to copy">
+        <span class="prompt">$</span>
+        <span class="cmd">npm install -g haan-ai</span>
+        <span class="copy-icon">📋</span>
+      </div>
+
+      <!-- Terminal Preview -->
+      <div class="terminal-wrapper">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">haan.ai</span>
+          </div>
+          <div class="terminal-body" id="terminal-body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Pipeline ═══════ -->
+  <section class="pipeline" id="pipeline">
+    <div class="container">
+      <div class="pipeline-header animate-in">
+        <div class="section-label">The Pipeline</div>
+        <h2 class="section-title">Five Agents. <span class="gradient-text">One Command.</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Each agent is a specialist. Together they form a complete software engineering team
+          that ships production-quality code autonomously.
+        </p>
+      </div>
+
+      <div class="pipeline-flow animate-in">
+        <div class="pipeline-stage stage-planner">
+          <div class="stage-icon">🧠</div>
+          <div class="stage-name">Planner</div>
+          <div class="stage-model">gemini-2.0-pro</div>
+          <div class="stage-desc">Analyzes your request, reads the codebase, and creates a step-by-step implementation plan.</div>
+        </div>
+
+        <div class="pipeline-arrow">→</div>
+
+        <div class="pipeline-stage stage-builder">
+          <div class="stage-icon">🔨</div>
+          <div class="stage-name">Builder</div>
+          <div class="stage-model">claude-opus-4</div>
+          <div class="stage-desc">Writes production-quality code following the plan. Creates files, edits code, runs builds.</div>
+        </div>
+
+        <div class="pipeline-arrow">→</div>
+
+        <div class="pipeline-stage stage-tester">
+          <div class="stage-icon">🧪</div>
+          <div class="stage-name">Tester</div>
+          <div class="stage-model">gpt-4o</div>
+          <div class="stage-desc">Generates comprehensive tests, runs the suite, and verifies everything passes.</div>
+        </div>
+
+        <div class="pipeline-arrow">→</div>
+
+        <div class="pipeline-stage stage-debugger">
+          <div class="stage-icon">🔍</div>
+          <div class="stage-name">Debugger</div>
+          <div class="stage-model">claude-sonnet-4</div>
+          <div class="stage-desc">If tests fail, diagnoses the root cause, fixes bugs, and re-triggers the build-test cycle.</div>
+        </div>
+
+        <div class="pipeline-arrow">→</div>
+
+        <div class="pipeline-stage stage-reviewer">
+          <div class="stage-icon">⭐</div>
+          <div class="stage-name">Reviewer</div>
+          <div class="stage-model">gpt-4-turbo</div>
+          <div class="stage-desc">Final code review for quality, security, performance, and adherence to best practices.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Models Banner ═══════ -->
+  <section class="models">
+    <div class="container models-inner">
+      <p>Powered by the world's best AI models</p>
+      <div class="models-list">
+        <div class="model-badge">
+          <div class="model-dot" style="background: var(--planner);"></div>
+          <div>
+            <div class="model-name">Gemini 2.0 Pro</div>
+            <div class="model-role">Planning & Architecture</div>
+          </div>
+        </div>
+        <div class="model-badge">
+          <div class="model-dot" style="background: var(--builder);"></div>
+          <div>
+            <div class="model-name">Claude Opus 4</div>
+            <div class="model-role">Building & Debugging</div>
+          </div>
+        </div>
+        <div class="model-badge">
+          <div class="model-dot" style="background: var(--tester);"></div>
+          <div>
+            <div class="model-name">GPT-4o</div>
+            <div class="model-role">Testing & Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Features ═══════ -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-header animate-in">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Everything You Need to <span class="gradient-text">Ship Fast</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Built for real-world software engineering, not toy demos.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🤖</div>
+          <h3>Multi-Model Orchestration</h3>
+          <p>Each agent uses the best model for its job. Gemini for planning, Claude for coding, GPT for testing. Swap models anytime.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🛠️</div>
+          <h3>25 Built-in Tools</h3>
+          <p>File read/write/edit, shell execution, git operations, web search, AST analysis, code analysis, test discovery, and shared memory.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🧠</div>
+          <h3>Shared Working Memory</h3>
+          <p>Agents pass context through a shared memory store. The planner's findings inform the builder. Test results guide the debugger.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🔄</div>
+          <h3>Auto-Retry Pipeline</h3>
+          <p>If tests fail, the debugger kicks in automatically. Build → Test → Debug → Rebuild cycles up to 3 retries until everything passes.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🔌</div>
+          <h3>Plugin System</h3>
+          <p>Extend haan.ai with custom tools, agents, and stages. Plugins load from .haan/plugins/ or npm packages.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🔗</div>
+          <h3>MCP Integration</h3>
+          <p>Works as both MCP server and client. Connect to Claude Code, VS Code, or consume external MCP tools like GitHub and databases.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">⚡</div>
+          <h3>Multi-Agent Collaboration</h3>
+          <p>Complex tasks are decomposed into subtasks that run on parallel builder agents. DAG-based pipeline executes independent stages concurrently.</p>
+        </div>
+
+        <div class="feature-card animate-in" id="dashboard">
+          <div class="feature-icon">🖥️</div>
+          <h3>Web Dashboard</h3>
+          <p>Desktop-app-quality web interface with real-time streaming, split-panel layout, and live pipeline visualization. Run with haan --dashboard.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">💰</div>
+          <h3>Budget Controls</h3>
+          <p>Set daily and per-task spending limits. Real-time cost tracking with per-model breakdown and automatic budget enforcement.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">🔐</div>
+          <h3>BYO API Keys</h3>
+          <p>Use your own Anthropic, OpenAI, and Google API keys. Just drop them in a .env file — no accounts, no middlemen.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">⚙️</div>
+          <h3>Human & Auto Modes</h3>
+          <p>Review each stage in human mode, or let it rip in full-auto. Control how much oversight you want per run.</p>
+        </div>
+
+        <div class="feature-card animate-in">
+          <div class="feature-icon">💻</div>
+          <h3>Rich Terminal UI</h3>
+          <p>Ink-powered React terminal interface with live streaming, agent status, pipeline progress, and gradient styling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ How It Works ═══════ -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="how-header animate-in">
+        <div class="section-label">Quick Start</div>
+        <h2 class="section-title">Up and Running in <span class="gradient-text">60 Seconds</span></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step animate-in">
+          <div class="step-number">1</div>
+          <h3>Install</h3>
+          <p>One command. Works on macOS, Linux, and Windows WSL.</p>
+          <div class="step-code">curl -fsSL haan.ai/install.sh | bash</div>
+        </div>
+
+        <div class="step animate-in">
+          <div class="step-number">2</div>
+          <h3>Configure</h3>
+          <p>Add your API keys to the .env file. That's it.</p>
+          <div class="step-code">nano ~/.haan/.env</div>
+        </div>
+
+        <div class="step animate-in">
+          <div class="step-number">3</div>
+          <h3>Run</h3>
+          <p>Give it a task in natural language. Watch the agents work.</p>
+          <div class="step-code">haan "Add user auth"</div>
+        </div>
+
+        <div class="step animate-in">
+          <div class="step-number">4</div>
+          <h3>Ship</h3>
+          <p>Review the changes, commit, and deploy. Production-ready code.</p>
+          <div class="step-code">git push origin main</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Pricing ═══════ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-header animate-in">
+        <div class="section-label">Pricing</div>
+        <h2 class="section-title">Start Free. <span class="gradient-text">Scale When Ready.</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          Use your own API keys on the free tier. Upgrade for managed credits, team features, and priority support.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Hacker -->
+        <div class="pricing-card animate-in">
+          <div class="pricing-name">Hacker</div>
+          <div class="pricing-price">
+            <span class="currency"></span>Free
+          </div>
+          <div class="pricing-desc">For individual developers exploring AI-powered coding.</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> All 5 agents (Plan, Build, Test, Debug, Review)</li>
+            <li><span class="check">✓</span> BYO API keys (Anthropic, OpenAI, Google)</li>
+            <li><span class="check">✓</span> 50 pipeline runs / month</li>
+            <li><span class="check">✓</span> All 25 built-in tools</li>
+            <li><span class="check">✓</span> Community Discord support</li>
+            <li><span class="check">✓</span> Human & auto modes</li>
+          </ul>
+          <a href="#install" class="pricing-btn pricing-btn-outline">Get Started</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="pricing-card featured animate-in">
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price">
+            <span class="currency">$</span>49<span class="period">/mo</span>
+          </div>
+          <div class="pricing-desc">For serious developers who ship every day.</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Everything in Hacker</li>
+            <li><span class="check">✓</span> $100 / month API credits included</li>
+            <li><span class="check">✓</span> Unlimited pipeline runs</li>
+            <li><span class="check">✓</span> Priority model routing</li>
+            <li><span class="check">✓</span> Advanced memory & context</li>
+            <li><span class="check">✓</span> Priority email support</li>
+            <li><span class="check">✓</span> Custom model configuration</li>
+          </ul>
+          <a href="#install" class="pricing-btn pricing-btn-gradient">Start Pro Trial</a>
+        </div>
+
+        <!-- Team -->
+        <div class="pricing-card animate-in">
+          <div class="pricing-name">Team</div>
+          <div class="pricing-price">
+            <span class="currency">$</span>99<span class="period">/seat/mo</span>
+          </div>
+          <div class="pricing-desc">For engineering teams building together.</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Everything in Pro</li>
+            <li><span class="check">✓</span> Shared team workspaces</li>
+            <li><span class="check">✓</span> SSO (SAML / OIDC)</li>
+            <li><span class="check">✓</span> Admin dashboard & usage analytics</li>
+            <li><span class="check">✓</span> Centralized API key management</li>
+            <li><span class="check">✓</span> Role-based access control</li>
+            <li><span class="check">✓</span> Slack integration</li>
+          </ul>
+          <a href="#install" class="pricing-btn pricing-btn-outline">Contact Sales</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card animate-in">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">Custom</div>
+          <div class="pricing-desc">For organizations with advanced requirements.</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Everything in Team</li>
+            <li><span class="check">✓</span> Self-hosted / on-prem deployment</li>
+            <li><span class="check">✓</span> 99.9% SLA guarantee</li>
+            <li><span class="check">✓</span> Custom model fine-tuning</li>
+            <li><span class="check">✓</span> Dedicated support engineer</li>
+            <li><span class="check">✓</span> SOC 2 & compliance support</li>
+            <li><span class="check">✓</span> Custom integrations & API</li>
+          </ul>
+          <a href="#install" class="pricing-btn pricing-btn-outline">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Install Section ═══════ -->
+  <section class="install" id="install">
+    <div class="container">
+      <div class="install-header animate-in">
+        <div class="section-label">Install</div>
+        <h2 class="section-title">Ready to <span class="gradient-text">Start Shipping?</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto;">
+          One command to install. One file for API keys. Then just tell it what to build.
+        </p>
+      </div>
+
+      <div class="install-box animate-in">
+        <div class="install-command" onclick="copyInstall(this)" title="Click to copy">
+          <span class="prompt" style="color: var(--success);">$</span>
+          <span style="color: var(--text);">curl -fsSL https://haan.ai/install.sh | bash</span>
+          <span class="copy-icon">📋</span>
+        </div>
+
+        <div class="platforms">
+          <div class="platform">
+            <div class="platform-icon">🍎</div>
+            <div class="platform-name">macOS</div>
+            <div class="platform-check">✓ Supported</div>
+          </div>
+          <div class="platform">
+            <div class="platform-icon">🐧</div>
+            <div class="platform-name">Linux</div>
+            <div class="platform-check">✓ Supported</div>
+          </div>
+          <div class="platform">
+            <div class="platform-icon">🪟</div>
+            <div class="platform-name">Windows</div>
+            <div class="platform-check">✓ WSL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ Footer ═══════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand gradient-text">haan.ai</div>
+      <div class="footer-credit">Created by <strong>Suhaan Thayyil</strong></div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/haan-ai">GitHub</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#install">Install</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
